@@ -10,7 +10,8 @@
 *{box-sizing:border-box}
 body{margin:0;min-height:100vh;overflow-x:hidden;color:#fff;font-family:system-ui,-apple-system,Segoe UI,sans-serif;background:radial-gradient(circle at 50% 10%,#5c2a91 0,#29104e 36%,#10051f 78%);display:flex;align-items:center;justify-content:center;padding:24px}
 .stars,.stars:before,.stars:after{position:fixed;inset:0;pointer-events:none;background-image:radial-gradient(2px 2px at 20% 30%,#fff,transparent),radial-gradient(1.5px 1.5px at 70% 20%,#ffe8a3,transparent),radial-gradient(2px 2px at 80% 70%,#fff,transparent),radial-gradient(1.5px 1.5px at 35% 80%,#d8c1ff,transparent),radial-gradient(1px 1px at 55% 55%,#fff,transparent);background-size:260px 260px;content:"";animation:twinkle 5s ease-in-out infinite alternate}
-.stars:before{transform:translate(40px,20px);opacity:.5}.stars:after{transform:translate(-30px,60px);opacity:.35}
+.stars:before{transform:translate(40px,20px);opacity:.5}
+.stars:after{transform:translate(-30px,60px);opacity:.35}
 @keyframes twinkle{from{opacity:.45}to{opacity:1}}
 .card{position:relative;width:min(100%,520px);text-align:center;padding:34px 24px 30px;border:1px solid #e9d6ff66;border-radius:28px;background:linear-gradient(145deg,#ffffff16,#ffffff08);box-shadow:0 20px 80px #05000b99;backdrop-filter:blur(8px);z-index:1}
 .badge{display:inline-block;border:1px solid #ffffff44;background:#ffffff12;border-radius:999px;padding:8px 14px;color:var(--lav);font-size:.9rem;letter-spacing:.08em}
@@ -36,34 +37,66 @@ button:active{transform:scale(.97)}
   <div class="moon">🌙✨🦋</div>
   <h1>Happy Birthday,<br><span class="name">Sadeen!</span></h1>
   <p class="subtitle">Today the universe gets a little brighter because it’s your day! 💜<br>Ready for your tiny birthday surprise?</p>
+
   <button id="openBtn" type="button">Open your magic ✨</button>
+
   <section id="surprise" aria-live="polite">
     <div style="font-size:2rem">🎂 🎁 🥳</div>
     <strong style="font-size:1.2rem;color:#ffe8a3">To the sweetest sister!</strong>
     <p>May your year be full of laughter, lovely surprises, big dreams, and tiny moments that make you smile. Keep shining, Sadeen — your magic is one of a kind! 💖</p>
     <p style="margin-bottom:0;color:#e8d8ff">Lots of love from your sibling 💜</p>
   </section>
+
   <div class="footer">Made with love, sparkles, and a little birthday magic <span class="sparkle">✦</span></div>
 </main>
+
+<audio id="birthdayMusic" src="birthday-piano.mp3" loop preload="auto"></audio>
+
 <script>
-const btn=document.getElementById('openBtn');
-const surprise=document.getElementById('surprise');
+const btn = document.getElementById('openBtn');
+const surprise = document.getElementById('surprise');
+const music = document.getElementById('birthdayMusic');
+
+let surpriseOpened = false;
+
 function confetti(){
-  const colors=['#ffb8f2','#ffe8a3','#d8c1ff','#ffffff','#b8f7ff'];
-  for(let i=0;i<65;i++){
-    const el=document.createElement('i'); el.className='confetti';
-    el.textContent=['✦','✧','♥','★','●'][Math.floor(Math.random()*5)];
-    el.style.left=Math.random()*100+'vw';
-    el.style.color=colors[Math.floor(Math.random()*colors.length)];
-    el.style.fontSize=(10+Math.random()*16)+'px';
-    el.style.animationDuration=(2.5+Math.random()*3)+'s';
-    el.style.animationDelay=(Math.random()*.8)+'s';
+  const colors = ['#ffb8f2','#ffe8a3','#d8c1ff','#ffffff','#b8f7ff'];
+
+  for(let i = 0; i < 65; i++){
+    const el = document.createElement('i');
+    el.className = 'confetti';
+    el.textContent = ['✦','✧','♥','★','●'][Math.floor(Math.random()*5)];
+    el.style.left = Math.random()*100 + 'vw';
+    el.style.color = colors[Math.floor(Math.random()*colors.length)];
+    el.style.fontSize = (10+Math.random()*16) + 'px';
+    el.style.animationDuration = (2.5+Math.random()*3) + 's';
+    el.style.animationDelay = (Math.random()*0.8) + 's';
+
     document.body.appendChild(el);
-    setTimeout(()=>el.remove(),6500);
+    setTimeout(() => el.remove(), 6500);
   }
 }
-btn.addEventListener('click',()=>{
-  surprise.classList.add('show'); btn.textContent='More birthday magic! ✨'; confetti();
+
+async function startCelebration(){
+  confetti();
+
+  try{
+    await music.play();
+    btn.textContent = 'More birthday magic! ✨';
+  }catch(error){
+    btn.textContent = 'Tap to try the music 🎵';
+    console.error('Check that birthday-piano.mp3 is uploaded beside index.html.', error);
+  }
+}
+
+btn.addEventListener('click', () => {
+  if(!surpriseOpened){
+    surprise.classList.add('show');
+    btn.textContent = 'More birthday magic! ✨';
+    surpriseOpened = true;
+  }else{
+    startCelebration();
+  }
 });
 </script>
 </body>
