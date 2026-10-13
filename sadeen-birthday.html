@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#26104d">
+<title>Happy Birthday Sadeen ✨</title>
+<style>
+:root{--bg:#16082f;--pink:#ffb8f2;--lav:#d8c1ff;--gold:#ffe8a3}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;overflow-x:hidden;color:#fff;font-family:system-ui,-apple-system,Segoe UI,sans-serif;background:radial-gradient(circle at 50% 10%,#5c2a91 0,#29104e 36%,#10051f 78%);display:flex;align-items:center;justify-content:center;padding:24px}
+.stars,.stars:before,.stars:after{position:fixed;inset:0;pointer-events:none;background-image:radial-gradient(2px 2px at 20% 30%,#fff,transparent),radial-gradient(1.5px 1.5px at 70% 20%,#ffe8a3,transparent),radial-gradient(2px 2px at 80% 70%,#fff,transparent),radial-gradient(1.5px 1.5px at 35% 80%,#d8c1ff,transparent),radial-gradient(1px 1px at 55% 55%,#fff,transparent);background-size:260px 260px;content:"";animation:twinkle 5s ease-in-out infinite alternate}
+.stars:before{transform:translate(40px,20px);opacity:.5}.stars:after{transform:translate(-30px,60px);opacity:.35}
+@keyframes twinkle{from{opacity:.45}to{opacity:1}}
+.card{position:relative;width:min(100%,520px);text-align:center;padding:30px 24px;border:1px solid #e9d6ff66;border-radius:28px;background:linear-gradient(145deg,#ffffff16,#ffffff08);box-shadow:0 20px 80px #05000b99;backdrop-filter:blur(8px);z-index:1}
+.badge{display:inline-block;border:1px solid #ffffff44;background:#ffffff12;border-radius:999px;padding:8px 14px;color:var(--lav);font-size:.82rem;letter-spacing:.08em}
+.moon{font-size:38px;margin:14px 0 2px;filter:drop-shadow(0 0 16px #ffe8a3)}
+h1{font-size:clamp(2.2rem,9vw,3.6rem);line-height:1.05;margin:10px 0;color:#fff;text-shadow:0 0 24px #df9cff88}
+.name{background:linear-gradient(90deg,#ffb8f2,#ffe8a3,#d8c1ff);background-clip:text;-webkit-background-clip:text;color:transparent}
+.subtitle{color:#e9dcff;font-size:1.02rem;line-height:1.7;margin:14px auto 18px;max-width:390px}
+.gift-button{display:block;margin:8px auto 0;background:transparent;border:0;cursor:pointer;padding:6px;filter:drop-shadow(0 0 18px #d59aff66);transition:transform .25s}
+.gift-button:hover{transform:translateY(-5px) scale(1.04)}
+.gift-button:active{transform:scale(.96)}
+.gift{position:relative;width:145px;height:112px;margin:30px auto 12px}
+.gift-box{position:absolute;left:8px;right:8px;bottom:0;height:77px;border-radius:8px 8px 13px 13px;background:linear-gradient(135deg,#a76bff,#6e32c2);box-shadow:inset -8px -7px 0 #4a1f86, inset 5px 5px 0 #d7b4ff}
+.gift-lid{position:absolute;z-index:2;left:0;right:0;top:22px;height:25px;border-radius:7px;background:linear-gradient(135deg,#e6c5ff,#b77cff);box-shadow:inset 0 -5px 0 #9b5cdb;transform-origin:12% 100%;transition:transform .75s cubic-bezier(.2,.8,.2,1),top .75s}
+.ribbon-v{position:absolute;z-index:3;left:61px;top:23px;width:23px;height:88px;background:linear-gradient(90deg,#ffe8a3,#fff2c6,#e5b84d)}
+.ribbon-h{position:absolute;z-index:4;left:0;right:0;top:24px;height:14px;background:linear-gradient(#fff0bd,#e5b84d)}
+.bow{position:absolute;z-index:5;left:45px;top:0;width:55px;height:32px}
+.bow:before,.bow:after{content:"";position:absolute;width:28px;height:22px;border:7px solid #ffe8a3;border-radius:22px 22px 5px 22px;transform:rotate(25deg)}
+.bow:after{left:25px;transform:scaleX(-1) rotate(25deg)}
+.gift-button.open .gift-lid{transform:translate(-9px,-47px) rotate(-24deg)}
+.gift-button.open .bow{transform:translate(-10px,-45px) rotate(-22deg);transition:transform .75s}
+.gift-button.open .gift-box{animation:glow .9s ease-in-out 2}
+@keyframes glow{50%{filter:brightness(1.6);box-shadow:0 0 35px #e6c5ff}}
+.tap-hint{color:#d8c1ff;font-size:.9rem;margin:4px 0 20px}
+#surprise{display:none;margin-top:18px;padding:20px 17px;border-radius:20px;background:#ffffff12;border:1px solid #ffffff2e;line-height:1.8;color:#fff}
+#surprise.show{display:block;animation:pop .7s ease both}
+@keyframes pop{from{opacity:0;transform:translateY(14px) scale(.96)}to{opacity:1;transform:none}}
+.surprise-title{font-size:1.2rem;color:#ffe8a3;font-weight:800}
+button.replay{border:0;border-radius:999px;padding:12px 19px;font-size:.95rem;font-weight:750;color:#291047;background:linear-gradient(90deg,#ffb8f2,#ffe8a3);cursor:pointer;margin-top:8px}
+.confetti{position:fixed;top:-20px;z-index:2;pointer-events:none;animation:fall linear forwards}
+@keyframes fall{to{transform:translateY(110vh) rotate(700deg);opacity:.2}}
+.footer{margin-top:23px;color:#d4c1efaa;font-size:.78rem}
+.sparkle{color:var(--gold)}
+</style>
+</head>
+<body>
+<div class="stars"></div>
+<main class="card">
+  <div class="badge">A LITTLE MAGIC JUST FOR YOU</div>
+  <div class="moon">🌙 ✨ 🦋</div>
+  <h1>Happy Birthday,<br><span class="name">Sadeen!</span></h1>
+  <p class="subtitle">A tiny magical surprise is waiting just for you.<br>Ready, birthday girl? 💜</p>
+
+  <button class="gift-button" id="giftButton" type="button" aria-label="Open your birthday present">
+    <div class="gift" aria-hidden="true">
+      <div class="gift-box"></div><div class="ribbon-v"></div>
+      <div class="gift-lid"></div><div class="ribbon-h"></div><div class="bow"></div>
+    </div>
+  </button>
+  <p class="tap-hint" id="tapHint">Tap the gift to open it ✨</p>
+
+  <section id="surprise" aria-live="polite">
+    <div style="font-size:2rem">🎆 💖 🎂 💖 🎆</div>
+    <div class="surprise-title">Surprise, Sadeen!</div>
+    <p>To the coolest sister ever: may your year be full of laughter, fun adventures, sweet surprises, and dreams coming true. Keep shining and being wonderfully YOU! 🦋</p>
+    <p style="margin-bottom:8px;color:#e8d8ff">Your sibling is cheering for you today and always. 💜</p>
+    <div style="font-size:1.6rem">🥳 🎁 🌟 🎁 🥳</div>
+    <button class="replay" id="replayButton" type="button">Celebrate again! 🎉</button>
+  </section>
+  <div class="footer">Made with love, sparkles, and birthday magic <span class="sparkle">✦</span></div>
+</main>
+<script>
+const giftButton=document.getElementById('giftButton');
+const surprise=document.getElementById('surprise');
+const tapHint=document.getElementById('tapHint');
+function confetti(){
+  const colors=['#ffb8f2','#ffe8a3','#d8c1ff','#ffffff','#b8f7ff'];
+  for(let i=0;i<85;i++){
+    const el=document.createElement('i'); el.className='confetti';
+    el.textContent=['✦','✧','♥','★','●','✷'][Math.floor(Math.random()*6)];
+    el.style.left=Math.random()*100+'vw';
+    el.style.color=colors[Math.floor(Math.random()*colors.length)];
+    el.style.fontSize=(10+Math.random()*18)+'px';
+    el.style.animationDuration=(2.4+Math.random()*3)+'s';
+    el.style.animationDelay=(Math.random()*.5)+'s';
+    document.body.appendChild(el);
+    setTimeout(()=>el.remove(),6200);
+  }
+}
+function openGift(){
+  giftButton.classList.add('open');
+  surprise.classList.add('show');
+  tapHint.textContent='Your birthday magic is here! 💜';
+  confetti();
+}
+giftButton.addEventListener('click',openGift);
+document.getElementById('replayButton').addEventListener('click',confetti);
+</script>
+</body>
+</html>
